@@ -1,0 +1,38 @@
+body{
+	margin: 0px auto;
+	padding: 0px;
+}
+
+#content_wrapper{
+	height: 4000px;
+}
+
+
+#bg{
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: -100;
+}
+#person{
+	position: fixed;
+	bottom: 10px;
+	left: 40px;
+	z-index: 500;
+}
+
+#bus{
+	position: fixed;
+	top: 30%;
+}
+
+
+.bus_img{
+	z-index: 200;
+}
+
+.bg_img{
+	width: 100%;
+	z-index: -100;
+}
+
