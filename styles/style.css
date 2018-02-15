@@ -51,10 +51,25 @@ body{
 
 #text1{
 	position: fixed;
-	top: 60%;
-	left: 20%;
+	bottom: 40%;
+	left: 15%;
 	z-index: 600;
 }
+
+#text2{
+	position: fixed;
+	top: 39%;
+	left:35%;
+	z-index: 600;
+}
+
+#text3{
+	position: fixed;
+	top:55%;
+	left: 30%;
+	z-index: 600;
+}
+
 #road{
 	position: fixed;
 	bottom: 0%;
@@ -74,14 +89,36 @@ body{
 
 #traffic_layer2{
 	position: fixed;
-	bottom: -5%;
+	bottom: -2%;
 }
 
 .traffic_layer1_img, .traffic_layer2_img{
 	height: 50%;
 }
 
+#scroll {
+	z-index: 800;
+	position: fixed;
+	top: 35%;
+	left: 40%;
+}
 
+#scroll img{
+	width: 50%;
+}
+
+#space{
+	visibility: hidden;
+	position: fixed;
+	z-index: 900;
+	top: 35%;
+	left: 35%;
+}
+
+#space img{
+	width: 50%;
+}
+/* CODE FOR POPUP FROM W3 schools*/
 /* for popups */
 /* Popup container */
 .popup {
@@ -98,12 +135,14 @@ body{
     color: #333;
     text-align: center;
     border-radius: 6px;
-    padding: 8px 0;
+    padding: 1.2em;
     position: absolute;
     z-index: 1;
     bottom: 125%;
     left: 50%;
     margin-left: -200px;
+    max-height: 200px;
+    overflow-y: scroll;
 }
 
 /* Popup arrow */
