@@ -7,6 +7,37 @@
 <link rel="stylesheet" type="text/css" href="./styles/style.css">
 <script type="text/javascript" src="./scripts/script.js"></script>
 <script type="text/javascript" src="./scripts/skrollr.js"></script>
+
+<script type="text/javascript"> 
+ 
+ var scrollLimit = 0; // flag to close popup in some scroll
+
+  function popup(elt) {
+    var popup = document.getElementById(elt.id);
+    // for(var i=0;i<popup.childNodes.length;i++){
+    //   console.log(popup.childNodes[i].id);
+    // } // check for span element in the div.
+    scrollLimit = 0;
+    var element = popup.childNodes[3];
+
+    if($(element).css('visibility') == 'hidden'){
+      $(element).css('visibility','visible');
+    }
+    else{
+      $(element).css('visibility','hidden');
+    }
+    // toggles the span element to visibility.
+  }
+
+  window.onscroll = function(e) {
+    scrollLimit++;
+    if(scrollLimit>20)  {
+      $("#popupWindow").css('visibility','hidden');
+    }
+  }
+
+
+</script>
 </head>
 <body>
   <div id="content_wrapper"> 
@@ -14,19 +45,36 @@
     <!-- 4 layers
     background, shops, road, person-->
 
-      <div id="bg" data-0="left: 50px" data-4000="left:-50px;"><img class="bg_img" src="./images/bg.svg"></div>
+      <div id="bg" data-0=" filter: blur(0px);" data-200=" filter: blur(5px);"><img class="bg_img" src="./images/bg.svg"></div>
       <div id="shops">
         
       </div>
 
       <div id="roadLayer">
-        <div id="bus" data-0="left: -1200px" data-500="left:500px;" data-800="left:500px;" data-900="left:1600px;"><img class="bus_img" src="./images/bus.svg"></div>
+        <div id="bus" 
+        data-0="left: -120%; filter: blur(2px)" 
+        data-500="left:30%; filter: blur(0px)" 
+        data-800="left:30%;" 
+        data-900="left: 100%;"><img class="bus_img" src="./images/bus.svg"></div>
       </div>
       
-      <div id="person"><img class="person_img" src="./images/woman.svg">
+      <div id="person" data-0="filter: blur(5px);" data-500="filter: blur(0px);"><img class="person_img" src="./images/woman.svg">
       </div>
 
+      <div id="popups">   
+        <div id="text1" class="popup" onclick="popup(this);">
+        <a class="popup" data-0="visibility: collapse;" data-500="visibility: visible;" data-800="visibility: collapse;"><img src="./images/indicator.svg"></a>
+        <span class="popuptext" id="popupWindow">
+          <h1>BMTC Public Busses</h1>
+          <p> They find the public busses expensive.</p>
+        </span>
+        </div>
+      </div>
+      
+
   </div>
+
+
 
   <script type="text/javascript">
   var s = skrollr.init(); // Used to initialise Scrollr library.
