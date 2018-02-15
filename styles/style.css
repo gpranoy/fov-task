@@ -1,11 +1,14 @@
 body{
 	margin: 0px auto;
 	padding: 0px;
+	overflow-x: hidden;
 	font-family: 'Open Sans', sans-serif;
 }
 
 #content_wrapper{
-	height: 4000px;
+	width: 1000px;
+	overflow-x: hidden;
+	min-height: 4000px;
 }
 
 
@@ -17,7 +20,7 @@ body{
 }
 #person{
 	position: fixed;
-	bottom: 10px;
+	bottom: 5px;
 	left: 40px;
 	z-index: 500;
 }
@@ -25,6 +28,15 @@ body{
 #bus{
 	position: fixed;
 	top: 30%;
+}
+
+#shops{
+	position: fixed;
+	top: 0%;
+}
+
+.shops_img{
+	height:85%;
 }
 
 
@@ -42,6 +54,31 @@ body{
 	top: 60%;
 	left: 20%;
 	z-index: 600;
+}
+#road{
+	position: fixed;
+	bottom: 0%;
+	z-index: -100;
+}
+
+#traffic	{
+	position: fixed;
+	bottom: 0%;
+	z-index: 200;
+}
+
+#traffic_layer1{
+	position: fixed;
+	bottom: 10%;
+}
+
+#traffic_layer2{
+	position: fixed;
+	bottom: -5%;
+}
+
+.traffic_layer1_img, .traffic_layer2_img{
+	height: 50%;
 }
 
 

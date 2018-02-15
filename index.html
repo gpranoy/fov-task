@@ -10,7 +10,7 @@
 
 <script type="text/javascript"> 
  
- var scrollLimit = 0; // flag to close popup in some scroll
+ var scrollLimit = 0; // flag to close popup on scroll
 
   function popup(elt) {
     var popup = document.getElementById(elt.id);
@@ -36,29 +36,53 @@
     }
   }
 
+  window.onresize= function() {
+
+   var w = window.innerWidth;
+   var h = window.innerHeight;
+    if(w<1000 || h<700) {
+      alert("Please, give us a little more space for our story.");
+      $("#content_wrapper").css("fliter","blur(5px)");
+    }
+    else{
+      $("#content_wrapper").css("fliter","blur(0px)");
+    }
+    console.log(w,h);
+ 
+ 
+  }
+  
 
 </script>
+
+
+
 </head>
+
 <body>
   <div id="content_wrapper"> 
     <!-- Maintains the height of the scroll for the scene -->
     <!-- 4 layers
-    background, shops, road, person-->
+    background, shops, road/traffic, person-->
 
-      <div id="bg" data-0=" filter: blur(0px);" data-200=" filter: blur(5px);"><img class="bg_img" src="./images/bg.svg"></div>
+      <div id="bg"><img class="bg_img" src="./images/bg.svg"></div>
+      
       <div id="shops">
-        
+        <img class="shops_img" src="./images/shops.svg"></div>
       </div>
 
-      <div id="roadLayer">
-        <div id="bus" 
-        data-0="left: -120%; filter: blur(2px)" 
-        data-500="left:30%; filter: blur(0px)" 
-        data-800="left:30%;" 
-        data-900="left: 100%;"><img class="bus_img" src="./images/bus.svg"></div>
+      <div id="traffic">
+        <!-- <div id="bus"><img class="bus_img" src="./images/bus.svg"></div> -->
+        <div id="traffic_layer1"> <img class="traffic_layer1_img" src="./images/traffic_layer1.svg"></div>
+        <div id="traffic_layer2"> <img class="traffic_layer2_img" src="./images/traffic_layer2.svg"></div>
       </div>
       
-      <div id="person" data-0="filter: blur(5px);" data-500="filter: blur(0px);"><img class="person_img" src="./images/woman.svg">
+      <div id="road">
+        <img src="./images/road.svg">
+      </div>
+
+
+      <div id="person"><img class="person_img" src="./images/woman.svg">
       </div>
 
       <div id="popups">   
@@ -76,8 +100,47 @@
 
 
 
-  <script type="text/javascript">
+ 
+<script type="text/javascript">
+
+  // Animations JS
+
+  //BG Animations
+
+  var bg = document.getElementById("bg");
+  bg.setAttribute("data-0"," filter: blur(0px);");
+  bg.setAttribute("data-200","filter: blur(5px);");
+
+  //Shops Animation
+  var shops = document.getElementById("shops"); 
+  shops.setAttribute("data-0","filter: blur(3px)");
+  shops.setAttribute("data-250","filter: blur(0px)");
+  shops.setAttribute("data-500","filter: blur(5px)");
+
+  // Traffic Animations 
+  // Traffic layer 1
+  var trafficlayer1 = document.getElementById("traffic_layer1"); 
+  trafficlayer1.setAttribute("data-0","left: -50%; filter: blur(3px)");
+  trafficlayer1.setAttribute("data-400","left: -20%; filter: blur(0px)");
+  trafficlayer1.setAttribute("data-500","left: 0%; filter: blur(5px)");
+
+  // Traffic Layer 2 
+  var trafficlayer2 = document.getElementById("traffic_layer2"); 
+  trafficlayer2.setAttribute("data-0","left: -50%; filter: blur(3px)");
+  trafficlayer2.setAttribute("data-300","left: -10%; filter: blur(0px)");
+  trafficlayer2.setAttribute("data-500","left: 0%; filter: blur(5px)");
+
+  // Person
+  var person = document.getElementById("person");
+  person.setAttribute("data-0","filter: blur(5px);");
+  person.setAttribute("data-500","filter: blur(0px);");
+
+</script>
+
+ <script type="text/javascript">
   var s = skrollr.init(); // Used to initialise Scrollr library.
-  </script>
+</script>
+
+
 </body>
 </hmtl>
