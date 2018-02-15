@@ -29,6 +29,7 @@
     // toggles the span element to visibility.
   }
 
+  // popup hide on scroll.
   window.onscroll = function(e) {
     scrollLimit++;
     if(scrollLimit>10)  {  
@@ -38,6 +39,9 @@
       $("#popupWindow3").css('visibility','hidden');      
     }
   }
+
+  // checking window size
+  //  works best for screen resolutions 1140*720.
 
   $(window).resize(function(){
    var w = window.innerWidth;
@@ -125,9 +129,10 @@
 <script type="text/javascript">
 
   // Animations JS
+  // data-[num]: num denotes the scroll position. 
+  // Here we can add all the keyframes for tweens through javascript.
 
   //BG Animations
-
   var bg = document.getElementById("bg");
   bg.setAttribute("data-0"," filter: blur(0px);");
   bg.setAttribute("data-200","filter: blur(5px);");
@@ -190,7 +195,7 @@
   popup3.setAttribute("data-1900","visibility: collapse;");
 
 
-  // Popups 
+  // Scroll dialog.
   var scroll = document.getElementById("scroll");
   scroll.setAttribute("data-0","opacity: 1; visibility:visible;");
   scroll.setAttribute("data-200","opacity: 0; visibility:collapse;");
