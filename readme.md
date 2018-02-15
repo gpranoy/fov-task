@@ -20,9 +20,9 @@ images
 	|-bus.svg  
 	|-rocket.svg  
 	|-woman.svg  
--scripts
+scripts  
 	|-skrollr.js  
--styles  
+styles  
 	|-style.css  
 
 Deliverables:  
