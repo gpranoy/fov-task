@@ -1,0 +1,23 @@
+[{
+"name":"text1",
+"class":"popupclass1",
+"scroll_start":"400",
+"scroll_end":"800",
+"top":"60",
+"left":"15",
+"text":"I work in a textile factory 3 kms away.<br/>Yes, I know walking's good for one. But, in this pollution? Why do you think I am?",
+"heading":"Walking..",
+"image":""
+},
+{
+"name":"text2",
+"class":"popupclass2",
+"scroll_start":"1000",
+"scroll_end":"1300",
+"top":"39",
+"left":"35",
+"text": "If I choose to travel in them. For, this 3km journey, it takes 30 mins every morning.</p> Also, The public busses are expensive. My colleagues who travel from 10km far, have to spend __% of their income for travel by public busses. They choose alternatives.",
+"heading":"BMTC Busses",
+"image":""
+}
+]

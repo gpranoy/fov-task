@@ -1,64 +1,17 @@
 <hmtl>
+<!-- Author : Pranoy Guduru 
+For Fields of View - Interaction Designer Task
+-->
 <meta name="mobile-web-app-capable" content="yes">
 <head>
 <title>FoV - Task | Pranoy Guduru</title>
+
+<!-- Loading font from CDN. -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="./styles/style.css">
 <script type="text/javascript" src="./scripts/script.js"></script>
 <script type="text/javascript" src="./scripts/skrollr.js"></script>
-
-<script type="text/javascript"> 
- 
- var scrollLimit = 0; // flag to close popup on scroll
-  // Modified code for popup from W3schools.
-  function popup(elt) {
-    var popup = document.getElementById(elt.id);
-    // for(var i=0;i<popup.childNodes.length;i++){
-    //   console.log(popup.childNodes[i].id);
-    // } // check for span element in the div.
-    scrollLimit = 0;
-    var element = popup.childNodes[3];
-
-    if($(element).css('visibility') == 'hidden'){
-      $(element).css('visibility','visible');
-    }
-    else{
-      $(element).css('visibility','hidden');
-    }
-    // toggles the span element to visibility.
-  }
-
-  // popup hide on scroll.
-  window.onscroll = function(e) {
-    scrollLimit++;
-    if(scrollLimit>10)  {  
-      // $(span).css('visibility','hidden');
-      $("#popupWindow1").css('visibility','hidden');      
-      $("#popupWindow2").css('visibility','hidden');      
-      $("#popupWindow3").css('visibility','hidden');      
-    }
-  }
-
-  // checking window size
-  //  works best for screen resolutions 1140*720.
-
-  $(window).resize(function(){
-   var w = window.innerWidth;
-   var h = window.innerHeight;
-   console.log(w,h);
-    if(w<1000 || h<680) {
-      $("#content_wrapper").css("visibility","hidden");
-      $("#space").css("visibility", "visible");
-    }
-    else{
-     $("#space").css("visibility", "collapse");
-    $("#content_wrapper").css("visibility","visible");
-    }
-  });
-
-
-</script>
 </head>
 
 <body>
@@ -74,137 +27,25 @@
       </div>
 
       <div id="traffic">
-        <!-- <div id="bus"><img class="bus_img" src="./images/bus.svg"></div> -->
         <div id="traffic_layer1"> <img class="traffic_layer1_img" src="./images/traffic_layer1.svg"></div>
         <div id="traffic_layer2"> <img class="traffic_layer2_img" src="./images/traffic_layer2.svg"></div>
       </div>
       
-      <div id="road">
-        <img src="./images/road.svg">
-      </div>
+      <!-- Road Layer -->
+      <div id="road"><img src="./images/road.svg"></div>
 
+      <!-- Layer with the person. -->
+      <div id="person"><img class="person_img" src="./images/woman.svg"></div>
 
-      <div id="person"><img class="person_img" src="./images/woman.svg">
-      </div>
-
-      <div id="popups">   
-        <div id="text1" class="popup" onclick="popup(this);">
-        <a class="popup1"><img src="./images/indicator.svg"></a>
-        <span class="popuptext" id="popupWindow1">
-          <h1>walking..</h1>
-          <p> I work in a textile factory 3 kms away.<br/>
-           Yes, I know walking's good for one. But, in this pollution? Why do you think I am? </p>
-        </span>
-        </div>
-
-        <div id="text2" class="popup" onclick="popup(this);">
-        <a class="popup1"><img src="./images/indicator.svg"></a>
-        <span class="popuptext" id="popupWindow2">
-          <h1>BMTC Busses</h1>
-          <p> 
-           If I choose to travel in them. For, this 3km journey, it takes 30 mins every morning.</p>
-           Also, The public busses are expensive. My colleagues who travel from 10km far, have to spend __% of their income for travel by public busses. They choose alternatives.<br/>
-        </span>
-
-        </div>
-
-        <div id="text3" class="popup" onclick="popup(this);">
-        <a class="popup1"><img src="./images/indicator.svg"></a>
-        <span class="popuptext" id="popupWindow3">
-          <h1>Weaving around...</h1>
-          <p> The autos and tempos are convenient on the wallet. but are crammed. But, that's alright, I guess, We adjust.<br/>
-        </span>
-
-        </div>
-      </div>
+      <!-- Popups with narrative. -->
+      <div id="popups"></div>
       
-      <div id="scroll"><img src="./images/scroll.svg"></div>
+      <!-- Message prompting user to scroll. -->
+      <div id="scroll"><img src="./images/scroll.svg"></div> 
+
+      <!-- Message prompting user  -->
       <div id="space"><img src="./images/space.svg"></div>
 
   </div>
-
-
-
- 
-<script type="text/javascript">
-
-  // Animations JS
-  // data-[num]: num denotes the scroll position. 
-  // Here we can add all the keyframes for tweens through javascript.
-
-  //BG Animations
-  var bg = document.getElementById("bg");
-  bg.setAttribute("data-0"," filter: blur(0px);");
-  bg.setAttribute("data-200","filter: blur(5px);");
-
-  //Shops Animation
-  var shops = document.getElementById("shops"); 
-  shops.setAttribute("data-0","filter: blur(3px)");
-  shops.setAttribute("data-250","filter: blur(0px)");
-  shops.setAttribute("data-500","filter: blur(5px)");
-
-  // Traffic Animations 
-  // Traffic layer 1
-  var trafficlayer1 = document.getElementById("traffic_layer1"); 
-  trafficlayer1.setAttribute("data-0","left: -120%; filter: blur(4px)");
-  trafficlayer1.setAttribute("data-400","left: -116%; filter: blur(0px)");
-  trafficlayer1.setAttribute("data-500","left: -115%; filter: blur(5px)");
-  trafficlayer1.setAttribute("data-1100","left: -110%; filter: blur(5px)");
-  trafficlayer1.setAttribute("data-1300","left: -110%; filter: blur(5px)");
-  trafficlayer1.setAttribute("data-1350","left: -110%; filter: blur(0px)");
-  trafficlayer1.setAttribute("data-1550","left: -110%; filter: blur(0px)");
-  trafficlayer1.setAttribute("data-1600","left: -110%; filter: blur(5px)");
-
-  // Traffic Layer 2 
-  var trafficlayer2 = document.getElementById("traffic_layer2"); 
-  trafficlayer2.setAttribute("data-0","left: -120%; filter: blur(4px)");
-  trafficlayer2.setAttribute("data-400","left: -110%; filter: blur(0px)");
-  trafficlayer2.setAttribute("data-500","left: -103%; filter: blur(5px)");
-  trafficlayer2.setAttribute("data-1100","left: -50%; filter: blur(5px)");
-  trafficlayer2.setAttribute("data-1350","left: -45%; filter: blur(5px)");
-  trafficlayer2.setAttribute("data-1550","left: -40%; filter: blur(5px)");
-  trafficlayer2.setAttribute("data-1600","left: -38%; filter: blur(0px)");
-  trafficlayer2.setAttribute("data-1900","left: -35%; filter: blur(0px)");
-  trafficlayer2.setAttribute("data-2000","left: -35%; filter: blur(0px)");
-  trafficlayer2.setAttribute("data-5000","left: 5%; filter: blur(4px)");
-  // Person
-  var person = document.getElementById("person");
-  person.setAttribute("data-0","filter: blur(5px);");
-  person.setAttribute("data-500","filter: blur(0px);");
-
-  // Road 
-  var road = document.getElementById("road");
-  road.setAttribute("data-0","filter: blur(3px);");
-  road.setAttribute("data-300","filter: blur(0px);");
-  road.setAttribute("data-500","filter: blur(2px);");
-
-  // Popups 
-  var popup1 = document.getElementById("text1");
-  popup1.setAttribute("data-0","visibility: collapse;");
-  popup1.setAttribute("data-500","visibility: visible;");
-  popup1.setAttribute("data-1200","visibility: collapse;");
-
-  var popup2 = document.getElementById("text2");
-  popup2.setAttribute("data-0","visibility: collapse;");
-  popup2.setAttribute("data-1300","visibility: visible;");
-  popup2.setAttribute("data-1600","visibility: collapse;");
-
-  var popup3 = document.getElementById("text3");
-  popup3.setAttribute("data-0","visibility: collapse;");
-  popup3.setAttribute("data-1600","visibility: visible;");
-  popup3.setAttribute("data-1900","visibility: collapse;");
-
-
-  // Scroll dialog.
-  var scroll = document.getElementById("scroll");
-  scroll.setAttribute("data-0","opacity: 1; visibility:visible;");
-  scroll.setAttribute("data-200","opacity: 0; visibility:collapse;");
-</script>
-
- <script type="text/javascript">
-  var s = skrollr.init(); // Used to initialise Scrollr library.
-</script>
-
-
 </body>
 </hmtl>

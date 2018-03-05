@@ -49,7 +49,7 @@ body{
 	z-index: -100;
 }
 
-#text1{
+/*#text1{
 	position: fixed;
 	bottom: 40%;
 	left: 15%;
@@ -68,7 +68,7 @@ body{
 	top:55%;
 	left: 30%;
 	z-index: 600;
-}
+}*/
 
 #road{
 	position: fixed;
