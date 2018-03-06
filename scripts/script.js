@@ -69,14 +69,16 @@ $.getJSON( "data/data.json", function( data ) {
 
   $.each( data, function( key, val ) {
 
-    var appendPopup = '<div id="'+val.name+'" style = "position:fixed; top:'+val.top+'% ; left:'+ val.left+'%;" class="popup" onclick="popup(this);" onmouseover="popup(this);"><a class="popup-img"><img src="./images/indicator.svg"></a><span class="popuptext" id="'+val.class+'"><h1>'+val.heading+'</h1><p>'+val.text+'</p></span></div>';
+    // var appendPopup = '<div id="'+val.name+'" class="popup" onclick="popup(this);" onmouseover="popup(this);"><a class="popup-img"><img src="./images/indicator.svg"></a><span class="popuptext" id="'+val.class+'"><h1>'+val.heading+'</h1><p>'+val.text+'</p></span></div>';
+
+    var appendPopup = '<div id="'+val.name+'" class="narrative"><h1>'+val.heading+'</h1><p>'+val.text+'</p></div></div>';
 
     // console.log(appendPopup);
    	$("#popups").append(appendPopup);
    	setScrollForPopups(val);
 
   });
-  	
+  	var s = skrollr.init(); // Used to initialise Scrollr library.
 });
 
 
@@ -86,12 +88,19 @@ $.getJSON( "data/data.json", function( data ) {
 function setScrollForPopups(val){
 // Popups 
   var popup = document.getElementById(val.name);
-  popup.setAttribute("data-0","visibility: collapse;");
-  popup.setAttribute("data-"+val.scroll_start,"visibility: visible;");
-  popup.setAttribute("data-"+val.scroll_end,"visibility: collapse;");
+  // popup.setAttribute("data-0","visibility: collapse;");
+  // // popup.setAttribute("data-"+val.scroll_start,"visibility: collapse;");
+  // popup.setAttribute("data-"+val.scroll_start,"visibility: visible;");
+  // popup.setAttribute("data-"+val.scroll_end,"visibility: collapse;");
 
-  var s = skrollr.init(); // Used to initialise Scrollr library.
-  
+  popup.setAttribute("data-0","visibility:collapse; top: 120%;");
+  popup.setAttribute("data-"+parseInt(val.scroll_start-80),"visibility: visible; opacity:0;");
+  popup.setAttribute("data-"+parseInt(val.scroll_start),"visibility: visible; opacity:1; top:80%;");
+  popup.setAttribute("data-"+parseInt(val.scroll_end),"visibility: visible; top:0px; opacity:1;");
+  popup.setAttribute("data-"+parseInt(parseInt(val.scroll_end)+80),"visibility: collapse; top:-20px; opacity:0;");
+
+  popup.style.position = "fixed";
+  popup.style.left = val.left+"%";
   
 }
 

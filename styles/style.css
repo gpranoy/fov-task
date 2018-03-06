@@ -49,6 +49,32 @@ body{
 	z-index: -100;
 }
 
+.narrative{
+
+	position: fixed;
+	/*top: 10%;*/
+	left: 10%;
+
+	min-width: 300px;
+	max-height: 500px;
+	max-width: 320px;
+	overflow-y: scroll;
+	background: antiquewhite;
+	border-radius: 6px;
+	text-align: center;
+	z-index: 1022;
+	padding: 1em;
+
+}
+
+.narrative h1{
+	font-size: 15px;
+}
+
+.narrative p{
+	text-align: left;
+}
+
 /*#text1{
 	position: fixed;
 	bottom: 40%;
@@ -125,6 +151,7 @@ body{
     position: relative;
     display: inline-block;
     cursor: pointer;
+    z-index: 1000;
 }
 
 /* The actual popup (appears on top) */
